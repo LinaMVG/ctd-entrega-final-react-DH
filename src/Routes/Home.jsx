@@ -11,15 +11,9 @@ const Home = () => {
     <main className="" >
       <h1>Home</h1>
       <div className='card-grid'> 
-        {state.loading ? (
-          <p>Loading dentists...</p>
-        ) : state.dentists && state.dentists.length > 0 ? (
-          state.dentists.map((dentist) => (
+          {state.dentists.map((dentist) => (
             <Card key={dentist.id} dentist={dentist} />
-          ))
-        ) : (
-          <p>No dentists found.</p>
-        )}
+          ))}
       </div>
     </main>
   )
