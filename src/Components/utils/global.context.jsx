@@ -29,15 +29,16 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios(url).then((res) => {
-      console.log("dentistas");
-      
-      console.log(res.data);      
-
-      dispatch({ type: "GET_DENTISTS", payload: res.data.dentists });
+      console.log("dentistas:: ",res.data);      
+      dispatch({ type: "GET_DENTISTS", payload: res.data});
       // setRecipes(res.data.recipes);
-      console.log(res.data.dentists); 
+    })
+    .catch((error) => {
+      console.error("Error al obtener los dentistas:", error);
     });
-  }, []);
+  }, 
+  []
+);
 
   return (
     <ContextGlobal.Provider value={{state, dispatch}}>
