@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 70px;
+  background-color: var(--navbar-bg-color);
+  transition: background-color 0.3s ease;
 }
 
 code {
@@ -21,14 +24,15 @@ code {
 
 h1{
   text-align: center;
+  margin: 0;
 }
 
-nav{
+/* nav{
   display: flex;
   width: 80vw;
   justify-content: flex-start;
   padding: 1rem;
-}
+} */
 
 a{
   color: #000;

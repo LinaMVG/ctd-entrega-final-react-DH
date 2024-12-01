@@ -7,13 +7,16 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 const ContextGlobal = createContext();
 
 const initialState = {
-  dentists: []
+  dentists: [],
+  theme: "light"
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "GET_DENTISTS":
       return { ...state, dentists: action.payload };
+    case "TOGGLE_THEME":
+      return { ...state, theme: state.theme === "light" ? "dark" : "light" };
     // case "ADD_CART":
     //   return { ...state, cart: [...state.cart, action.payload] };
     default:
@@ -26,6 +29,10 @@ const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const url = `https://jsonplaceholder.typicode.com/users`;
+
+  const toggleTheme = () => {
+    dispatch({ type: "TOGGLE_THEME" });
+  };
 
   useEffect(() => {
     axios(url).then((res) => {
@@ -41,7 +48,7 @@ const ContextProvider = ({ children }) => {
 );
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch}}>
+    <ContextGlobal.Provider value={{state, toggleTheme}}>
       {children}
     </ContextGlobal.Provider>
   );
