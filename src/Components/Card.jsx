@@ -1,9 +1,10 @@
 import React from "react";
-import { useContextGlobal } from "./utils/global.context";
+import { Link } from 'react-router-dom';
+
 
 
 const Card = ({ dentist }) => {
-  // const { id, name, username } = dentist;
+   const { id, name, username } = dentist;
   // const addFav = ()=>{
   //   // Aqui iria la logica para agregar la Card en el localStorage
   // }
@@ -15,9 +16,14 @@ const Card = ({ dentist }) => {
         alt="Doctor"
         style={{ width: "100px", height: "100px", borderRadius: "50%" }}
       />
-      <h1>{dentist.name}</h1>
+
+      <Link to={`/detail/${id}`}>
+        <h1>{dentist.name}</h1>
+      </Link>
+
       <p>{dentist.username}</p>
       <p>{dentist.id}</p>
+
 
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
