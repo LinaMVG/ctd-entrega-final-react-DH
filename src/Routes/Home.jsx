@@ -8,7 +8,7 @@ const Home = () => {
  console.log("muestra el valor de state en home ::", state);
   
   return (
-    <main className={state.theme === 'dark' ? 'dark' : 'light'}>
+    <main className="home">
       <h1>Home</h1>
       <div className='card-grid'> 
           {state.dentists.map((dentist) => (

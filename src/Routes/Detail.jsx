@@ -10,8 +10,6 @@ const Detail = () => {
   const [dentist, setDentist] = useState({});
   const params = useParams();
 
-
-  //`https://jsonplaceholder.typicode.com/users`
   const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const Detail = () => {
 
 
   return (
-    <>
+    <div className="home">
       <h1>Detail Dentist{dentist.id}</h1>
       <table>
       <thead>
@@ -49,7 +47,7 @@ const Detail = () => {
             </tr>
           </tbody>
        </table>
-    </>
+    </div>
   )
 }
 

@@ -1,14 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
-// import { reducer } from "../../reducers/reducer";
-
-//export const initialState = {theme: "", data: []}
 
 const ContextGlobal = createContext();
+const storageFavs = JSON.parse(localStorage.getItem("favs"));
 
 const initialState = {
   dentists: [],
-  favs: [],
+  favs: storageFavs || [],
   theme: "light"
 
 };
@@ -30,18 +28,16 @@ const reducer = (state, action) => {
 
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const url = `https://jsonplaceholder.typicode.com/users`;
 
   const toggleTheme = () => {
-    dispatch({ type: "TOGGLE_THEME",theme });
+    dispatch({ type: "TOGGLE_THEME"});
   };
 
   useEffect(() => {
     axios(url).then((res) => {
       console.log("dentistas:: ",res.data);      
       dispatch({ type: "GET_DENTISTS", payload: res.data});
-      // setRecipes(res.data.recipes);
     })
     .catch((error) => {
       console.error("Error al obtener los dentistas:", error);
@@ -49,6 +45,10 @@ const ContextProvider = ({ children }) => {
   }, 
   []
 );
+
+useEffect(() => {
+  localStorage.setItem("favs", JSON.stringify(state.favs));
+}, [state]);
 
   return (
     <ContextGlobal.Provider value={{state, dispatch, toggleTheme}}>

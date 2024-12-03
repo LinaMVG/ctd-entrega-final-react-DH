@@ -5,9 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 60px;
   background-color: var(--navbar-bg-color);
   transition: background-color 0.3s ease;
+}
+
+.home {
+  padding-top: 60px;
 }
 
 code {

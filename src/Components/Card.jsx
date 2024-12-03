@@ -7,8 +7,8 @@ import { Link, useLocation } from "react-router-dom";
 const Card = ({ dentist }) => {
    const { id, name, username } = dentist;
    const {dispatch} = useContextGlobal()
-   const location = useLocation(); //Herramienta que uso para saber en que página se renderiza la card
-  console.log("location", location);
+  //  const location = useLocation(); //Herramienta que uso para saber en que página se renderiza la card
+  // console.log("location", location);
 
   const addFav = (dentist)=>{
       dispatch({
@@ -35,15 +35,6 @@ const Card = ({ dentist }) => {
      
       <button onClick={()=>{addFav(dentist)}} className="favButton">Add fav</button>
      
-     
-    
-      
-
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        {/* <button onClick={addFav} className="favButton">Add fav</button> */}
     </div>
   );
 };

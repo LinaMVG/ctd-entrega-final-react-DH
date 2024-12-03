@@ -20,9 +20,9 @@ const Form = () => {
     const regexString= /[a-zA-ZáÁ]$/;
     const regexEmail=/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-    if (user.nombre.trim().length <=3) {
+    if (user.nombre.trim().length <=5) {
       setError(true)
-      setErrorMessage("El nombre debe tener más de 3 carácteres")
+      setErrorMessage("El nombre debe tener más de 5 carácteres")
     }
     else if (!regexString.test(user.nombre)) {
       setError(true)
@@ -36,7 +36,7 @@ const Form = () => {
     else {
       // setShow(true)
       setError(false)
-      setSuccessMessage(`${user.nombre}, te contactaremos via email`)
+      setSuccessMessage(`Gracias ${user.nombre}, te contactaremos cuando antes via email`)
       
     }
 
