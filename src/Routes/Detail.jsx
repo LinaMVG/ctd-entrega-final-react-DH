@@ -9,16 +9,18 @@ const Detail = () => {
 
   const [dentist, setDentist] = useState({});
   const params = useParams();
-  console.log(params);
+
 
   //`https://jsonplaceholder.typicode.com/users`
-  const url = `jsonplaceholder.typicode.com/users/${params.id}`;
+  const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
 
   useEffect(() => {
     axios(url)
-      .then(({ data }) => {
-        console.log("Data desde detail",data);
-        setDentist(data);
+      .then((res) => {
+        console.log(res);
+        
+        console.log("Data desde detail",res.data);
+        setDentist(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -28,11 +30,25 @@ const Detail = () => {
 
   return (
     <>
-      <h1>Detail Dentist </h1>
-      <div dangerouslySetInnerHTML={{ __html: dentist.data}}/>
-
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
+      <h1>Detail Dentist{dentist.id}</h1>
+      <table>
+      <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Sitio Web</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{dentist.name}</td>
+              <td>{dentist.email}</td>
+              <td>{dentist.phone}</td>
+              <td>{dentist.website}</td>
+            </tr>
+          </tbody>
+       </table>
     </>
   )
 }

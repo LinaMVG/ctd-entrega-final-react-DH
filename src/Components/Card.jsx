@@ -1,13 +1,22 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { useContextGlobal } from "./utils/global.context";
+import { Link, useLocation } from "react-router-dom";
 
 
 
 const Card = ({ dentist }) => {
    const { id, name, username } = dentist;
-  // const addFav = ()=>{
-  //   // Aqui iria la logica para agregar la Card en el localStorage
-  // }
+   const {dispatch} = useContextGlobal()
+   const location = useLocation(); //Herramienta que uso para saber en que página se renderiza la card
+  console.log("location", location);
+
+  const addFav = (dentist)=>{
+      dispatch({
+        type: "ADD_FAVS",
+        payload: dentist,
+      })
+    // Aqui iria la logica para agregar la Card en el localStorage
+  }
 
   return (
     <div className="card">
@@ -20,9 +29,15 @@ const Card = ({ dentist }) => {
       <Link to={`/detail/${id}`}>
         <h1>{dentist.name}</h1>
       </Link>
+      
 
       <p>{dentist.username}</p>
-      <p>{dentist.id}</p>
+     
+      <button onClick={()=>{addFav(dentist)}} className="favButton">Add fav</button>
+     
+     
+    
+      
 
 
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}

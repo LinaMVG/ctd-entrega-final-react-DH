@@ -8,17 +8,20 @@ const ContextGlobal = createContext();
 
 const initialState = {
   dentists: [],
+  favs: [],
   theme: "light"
+
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "GET_DENTISTS":
       return { ...state, dentists: action.payload };
+    case "ADD_FAVS":
+      return { ...state, favs: [...state.favs, action.payload] };
     case "TOGGLE_THEME":
       return { ...state, theme: state.theme === "light" ? "dark" : "light" };
-    // case "ADD_CART":
-    //   return { ...state, cart: [...state.cart, action.payload] };
+    
     default:
       throw new Error("Acción no existente");
   }
@@ -31,7 +34,7 @@ const ContextProvider = ({ children }) => {
   const url = `https://jsonplaceholder.typicode.com/users`;
 
   const toggleTheme = () => {
-    dispatch({ type: "TOGGLE_THEME" });
+    dispatch({ type: "TOGGLE_THEME",theme });
   };
 
   useEffect(() => {
@@ -48,7 +51,7 @@ const ContextProvider = ({ children }) => {
 );
 
   return (
-    <ContextGlobal.Provider value={{state, toggleTheme}}>
+    <ContextGlobal.Provider value={{state, dispatch, toggleTheme}}>
       {children}
     </ContextGlobal.Provider>
   );
