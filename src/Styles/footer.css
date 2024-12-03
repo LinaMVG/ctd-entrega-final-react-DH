@@ -1,0 +1,90 @@
+/* Footer Container */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0;
+    justify-content: center;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Red Top Bar */
+  .footer-top {
+    width: 100%;
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Footer Content */
+  .footer-content {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Logo Styling */
+  footer > img, 
+  .footer-logo-img {
+    width: 150px;
+    height: auto;
+    margin-top: 5px;
+  }
+  
+  /* Social Media Icons */
+  .footer-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .footer-icons .icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+
+    background-color: var(--icon-bg-color, #000); 
+    border-radius: 46%;
+  }
+  
+  .footer-icons .icon:hover {
+    transform: scale(1.2);
+  }
+
+  footer > p,
+    .footer-powered > p {
+    margin: 0;
+    padding: 0;
+    }
+
+  /**/
+  .footer-dark {
+    background-color: #474141;
+    color: #fff;
+  }
+  
+  .footer-light {
+    background-color: #f3f0f0;
+    color: #000;
+  }
+  
+  .footer-dark .footer-top {
+    background-color: #634545;
+  }
+  
+  .footer-light .footer-top {
+    background-color: #d32f2f;
+  }
+  
