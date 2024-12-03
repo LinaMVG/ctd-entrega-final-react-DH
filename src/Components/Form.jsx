@@ -37,6 +37,8 @@ const Form = () => {
       // setShow(true)
       setError(false)
       setSuccessMessage(`Gracias ${user.nombre}, te contactaremos cuando antes via email`)
+      console.log("Usuario guardado con los datos:", { Nombre: user.nombre, Email: user.email });
+
       
     }
 
