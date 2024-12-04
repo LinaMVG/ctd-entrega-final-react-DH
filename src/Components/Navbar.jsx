@@ -6,7 +6,7 @@ import '../Styles/navbar.css'
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  
   const { state, toggleTheme } = useContextGlobal();
 
   return (

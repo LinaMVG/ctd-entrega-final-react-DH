@@ -20,16 +20,16 @@ const Footer = () => {
         
         <div className="footer-icons">
             <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="public\images\ico-facebook.png" alt='Facebook' className="icon"/>
+            <img src="/images/ico-facebook.png" alt='Facebook' className="icon"/>
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="public\images\ico-instagram.png" alt='Instagram' className="icon"/>
+            <img src="/images/ico-instagram.png" alt='Instagram' className="icon"/>
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="public\images\ico-tiktok.png" alt='TikTok' className="icon"/>
+            <img src="/images/ico-tiktok.png" alt='TikTok' className="icon"/>
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
-            <img src="public\images\ico-whatsapp.png" alt='WhatsApp' className="icon"/>
+            <img src="/images/ico-whatsapp.png" alt='WhatsApp' className="icon"/>
             </a>
         </div>
       </div>

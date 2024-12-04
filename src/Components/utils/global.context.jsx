@@ -3,12 +3,12 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 const ContextGlobal = createContext();
 const storageFavs = JSON.parse(localStorage.getItem("favs"));
+const storageTheme = JSON.parse(localStorage.getItem("theme"));
 
 const initialState = {
   dentists: [],
   favs: storageFavs || [],
-  theme: "light"
-
+  theme: storageTheme || "light"
 };
 
 const reducer = (state, action) => {
@@ -48,6 +48,7 @@ const ContextProvider = ({ children }) => {
 
 useEffect(() => {
   localStorage.setItem("favs", JSON.stringify(state.favs));
+  localStorage.setItem("theme", JSON.stringify(state.theme));
 }, [state]);
 
   return (
