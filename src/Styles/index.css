@@ -30,13 +30,6 @@ h1{
   margin: 0;
 }
 
-/* nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
-} */
-
 a{
   color: #000;
   text-decoration: none;
@@ -46,27 +39,6 @@ a{
 a:hover{
   color: rgb(136, 136, 136);
 } 
-
-/* footer {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
-}
-
-footer > img{
-  width: 200px;
-  margin: 0;
-}
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
-} */
 
 form{
   display: flex;

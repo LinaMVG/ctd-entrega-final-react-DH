@@ -15,14 +15,14 @@
     z-index: 1000;
   }
   
-  .navbar.dark {
+  .navbar-dark {
     --navbar-bg-color: #333;
     --link-color: #fff;
     --button-bg: #555;
     --button-color: #fff;
   }
   
-  .navbar.light {
+  .navbar-light {
     --navbar-bg-color: #d3d3d3;
     --link-color: #333;
     --button-bg: #fff;

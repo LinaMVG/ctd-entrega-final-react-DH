@@ -6,31 +6,38 @@ import { Link, useLocation } from "react-router-dom";
 
 const Card = ({ dentist }) => {
    const { id, name, username } = dentist;
-   const {state, dispatch} = useContextGlobal()
-  //  const location = useLocation(); //Herramienta que uso para saber en que página se renderiza la card
+   const { dispatch, state:{favs}} = useContextGlobal()
+   const location = useLocation(); //Herramienta que uso para saber en que página se renderiza la card
   // console.log("location", location);
   
-
+  const findFav = favs.find((fav) => fav.id === dentist.id);
+  
   const addFav = (dentist)=>{
-    
-    const isFavorite = state.favs.some(fav => fav.id === dentist.id);
-    console.log(dentist.id);
-    
-    if (isFavorite) {
+    // const isFavorite = favs.some(fav => fav.id === dentist.id);
+    // console.log(dentist.id);
+    if (findFav) {
       alert("Dentist is already in favs")
-      
     } else {
-      dispatch({
-        type: "ADD_FAVS",
-        payload: dentist,
-      })
+      dispatch({ type: findFav ? "DELETE_FAV" : "ADD_FAVS", payload: dentist });
       alert("Dentist added")
-      
     }
-    
-      
-    // Aqui iria la logica para agregar la Card en el localStorage
   }
+
+  const removeFav = (dentist) => {
+    if (findFav) {
+      dispatch({ type: "DELETE_FAV", payload: dentist });
+      alert("Dentist removed from favorites");
+    }
+  };
+
+  const showDeleteButton = location.pathname === "/favs"; 
+  const handleButtonClick = () => {
+    if (location.pathname === "/favs") {
+       removeFav(dentist);
+    } else {
+       addFav(dentist);
+    }
+ };
 
   return (
     <div className="card">
@@ -44,10 +51,14 @@ const Card = ({ dentist }) => {
         <h1>{dentist.name}</h1>
       </Link>
       
-
       <p>{dentist.username}</p>
      
-      <button onClick={()=>{addFav(dentist)}} className="favButton">Add fav</button>
+      <button
+            onClick={handleButtonClick}
+            className="favButton"
+         >
+            {showDeleteButton ? "Delete" : "Add fav"}
+      </button>
      
     </div>
   );

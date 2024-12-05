@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { reducer } from "../../reducers/reducer";
 
 const ContextGlobal = createContext();
 const storageFavs = JSON.parse(localStorage.getItem("favs"));
@@ -8,23 +9,8 @@ const storageTheme = JSON.parse(localStorage.getItem("theme"));
 const initialState = {
   dentists: [],
   favs: storageFavs || [],
-  theme: storageTheme || "light"
+  theme: storageTheme || "light",
 };
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "GET_DENTISTS":
-      return { ...state, dentists: action.payload };
-    case "ADD_FAVS":
-      return { ...state, favs: [...state.favs, action.payload] };
-    case "TOGGLE_THEME":
-      return { ...state, theme: state.theme === "light" ? "dark" : "light" };
-    
-    default:
-      throw new Error("Acción no existente");
-  }
-};
-
 
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
