@@ -1,6 +1,7 @@
 import React from "react";
 import { useContextGlobal } from "./utils/global.context";
 import { Link, useLocation } from "react-router-dom";
+import CardStyles from "../styles/Card.module.css";
 
 
 
@@ -40,19 +41,19 @@ const Card = ({ dentist }) => {
  };
 
   return (
-    <div className="card">
+    <div className={CardStyles.cardContainer}>
+      
+
+      <Link to={`/detail/${id}`}>
       <img
         src="/images/doctor.jpg"
         alt="Doctor"
-        style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-      />
-
-      <Link to={`/detail/${id}`}>
-        <h1>{dentist.name}</h1>
+        // style={{ width: "100px", height: "100px", borderRadius: "50%" }} 
+        />
+        <h3>{dentist.name}</h3>
+        <p>{dentist.username}</p>
       </Link>
       
-      <p>{dentist.username}</p>
-     
       <button
             onClick={handleButtonClick}
             className="favButton"

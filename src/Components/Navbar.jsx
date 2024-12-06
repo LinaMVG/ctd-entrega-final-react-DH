@@ -19,7 +19,7 @@ const Navbar = () => {
           <h4>Contact</h4>
         </Link>
         <Link to="/favs">
-          <h4>Favs</h4>
+          <h4>Favorites</h4>
         </Link>
       </div>
 

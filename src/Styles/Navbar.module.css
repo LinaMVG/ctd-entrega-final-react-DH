@@ -21,6 +21,7 @@
     --button-bg: #555;
     --button-color: #fff;
   }
+
   
   .navbar-light {
     --navbar-bg-color: #d3d3d3;
@@ -41,7 +42,9 @@
   }
   
   .navbar h4:hover {
-    color: #007bff;
+    
+    color: #c78c19;
+    text-decoration: underline;
   }
   
   .navbar-links {
