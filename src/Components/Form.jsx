@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-
+import FormStyles from "../Styles/Form.module.css";
 
 const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
 
   const [user,setUser] = useState({
     nombre: "",
-    email: ""
+    email: "",
+    pregunta: ""
   })
 
-  // const [show,setShow] = useState(false)
   const [error,setError] = useState(false)
   const [errorMessage,setErrorMessage] = useState("")
   const [successMessage, setSuccessMessage] = useState("");
@@ -34,12 +33,9 @@ const Form = () => {
     }
 
     else {
-      // setShow(true)
       setError(false)
       setSuccessMessage(`Gracias ${user.nombre}, te contactaremos cuanto antes via email`)
-      console.log("Usuario guardado con los datos:", { Nombre: user.nombre, Email: user.email });
-
-      
+      console.log("Usuario guardado con los datos:", { Nombre: user.nombre, Email: user.email, Pregunta:user.pregunta});
     }
 
   }
@@ -48,14 +44,21 @@ const Form = () => {
   return (
     <div>
      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nombre" onChange={(event) =>
+      <div className={FormStyles.formContainer}>
+      <input type="text" placeholder="Nombre" onChange={(event) =>
           setUser({...user,nombre: event.target.value})
         } 
         />
         <input type="email" placeholder="Email" onChange={(event)=>
           setUser({...user, email: event.target.value})
         } />
+        <textarea type="text" placeholder="Escribe tus preguntas aquí..." onChange={(event)=>
+          setUser({...user, pregunta: event.target.value})
+        } />
         <button>Submit</button>
+
+      </div >
+        
       </form>
       {error ? (
       <h4 style={{ color: "red" }}>

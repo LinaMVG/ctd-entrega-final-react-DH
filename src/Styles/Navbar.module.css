@@ -3,11 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: var(--navbar-bg-color);
-    color: var(--text-color);
+    padding: 1rem;
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* box-shadow: none; */
     box-sizing: border-box;
     position: fixed;
     top: 0; 
@@ -16,7 +13,7 @@
   }
   
   .navbar-dark {
-    --navbar-bg-color: #333;
+    background-color: #3f4e64;  
     --link-color: #fff;
     --button-bg: #555;
     --button-color: #fff;
@@ -24,8 +21,9 @@
 
   
   .navbar-light {
-    --navbar-bg-color: #d3d3d3;
-    --link-color: #333;
+    background-color: #00669F;
+    /* --link-color: #333; */
+    --link-color: #FFFFF;
     --button-bg: #fff;
     --button-color: #333;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
@@ -43,7 +41,7 @@
   
   .navbar h4:hover {
     
-    color: #c78c19;
+    /* color:linear-gradient(to bottom right, #6BB3E0, #1CD1B0);; */
     text-decoration: underline;
   }
   
@@ -69,7 +67,7 @@
   }
   
   .navbar-actions button:hover {
-    background-color: #007bff;
-    color: #fff;
+    /* background-color: #007bff;
+    color:linear-gradient(to bottom right, #6BB3E0, #1CD1B0); */
   }
   

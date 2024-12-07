@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useContextGlobal } from './utils/global.context';
 import styles from '../Styles/Navbar.module.css';
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Navbar = () => {
   
   const { state, toggleTheme } = useContextGlobal();
@@ -25,7 +23,6 @@ const Navbar = () => {
 
       <div className={styles['navbar-actions']}>
         <button onClick={toggleTheme}>Change theme</button>
-        {/* <button onClick={() => navigate(-1)}>Go Back</button> */}
       </div>
 
     </nav>

@@ -4,13 +4,10 @@
   align-items: center;
   width: 250px; 
   padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+
   border-radius: 10px;
   margin-top: 20px;
- 
-
-  /* background-color: #fdf2da; */
-
+  border: 2px solid #BDC3C7;
 }
 
 .cardContainer img {
@@ -19,24 +16,38 @@
   border-radius: 50%;
 }
 
-
-
 .cardContainer:hover{
-  border: 0.5px solid rgb(206, 217, 142);
-  box-shadow: 0px 5px 5px 0px slategrey;
+  border: 1px solid #555; 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(195, 195, 195, 0.2);
+  border: 2px solid #4A90E2;
 }
+
 .cardContainer button{
-
   cursor: pointer;
-
   bottom: 10px;
-  background-color: #00669f;
   color: white;
   border: none;
   width: 85%;
   padding: 10px;
   margin-bottom: 15px;
+  background-color: #4A90E2;
+  border-radius: 5px;
+}
   
+.cardContainer button:hover {
+  background: linear-gradient(to bottom right, #6BB3E0, #1CD1B0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.cardContainer button:active {
+  transform: translateY(2px); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.cardContainer.dark {
+  background-color: #333; 
+}
 
+.cardContainer.light {
+  background-color: #f5f5f5;
+}
