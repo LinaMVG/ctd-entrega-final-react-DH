@@ -26,7 +26,7 @@ const Detail = () => {
 
   return (
     <div className="home">
-      <h1>Detail Dentist{dentist.id}</h1>
+      <h1>Detail Dentist : {dentist.name}</h1>
       <table>
       <thead>
             <tr>
