@@ -1,7 +1,7 @@
 import React from "react";
 import { useContextGlobal } from "./utils/global.context";
 import { Link, useLocation } from "react-router-dom";
-import CardStyles from "../styles/Card.module.css";
+import CardStyles from "../Styles/Card.module.css";
 
 const Card = ({ dentist }) => {
    const { id, name, username } = dentist;
